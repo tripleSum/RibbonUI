@@ -1,3 +1,4 @@
+node_modules/
 .eslintrc.cjs
 vite.config.ts
 commitlint.config.cjs
