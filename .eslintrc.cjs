@@ -39,6 +39,9 @@ module.exports = {
 		],
 		"react/jsx-no-target-blank": "off",
 		"no-trailing-spaces": "error",
+		"react/prop-types": "off",
+		"array-bracket-spacing": ["error","always"],
+		"object-curly-spacing": ["error","always"]
 	},
 	"settings": {
     "react": {
