@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import { MouseEvent } from 'react'
 export enum ButtonSize {
-  Large = 'large',
-  Small = 'small'
+  Large = 'lg',
+  Small = 'sm'
 }
 
 export enum ButtonType {
@@ -30,10 +30,10 @@ const Button:React.FC<BaseButtonProps> = (props) => {
     children
   } = props
 
-  const classes = classNames('btn', {
-    [`btn-${type}`]: type,
-    [`btn-${size}`]: size,
-    'disabled': (type === ButtonType.Link) &&  disabled // a标签 并没有原生的disable属性 所以需要额外加个类
+  const classes = classNames('ribbon-btn', {
+    [`ribbon-btn-${type}`]: type,
+    [`ribbon-btn-${size}`]: size,
+    'ribbon-btn-link-disabled': (type === ButtonType.Link) &&  disabled // a标签 并没有原生的disable属性 所以需要额外加个类
   })
 
   const handleClick = (e:MouseEvent) => {

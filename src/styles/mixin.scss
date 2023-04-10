@@ -1,0 +1,46 @@
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin button-style(
+  $bakcground,
+  $border,
+  $color,
+  $hover-background: lighten($bakcground, 7.5%),
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color,
+) {
+  color: $color;
+  background: $bakcground;
+  border-color: $border;
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus {
+    outline: 0; // reset.css竟然没删掉 记个TODO研究一下
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &[disabled] {
+    color: $btn-disabled-color;
+    background: $btn-disabled-background;
+    border-color: $btn-disabled-border;
+    &:hover {
+      color: $btn-disabled-color;
+      text-decoration: none;
+    }
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    > * {
+      pointer-events: none;
+    }
+  }
+}

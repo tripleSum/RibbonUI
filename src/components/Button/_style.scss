@@ -1,30 +1,65 @@
-.btn {
+.ribbon-btn {
   position: relative;
   display: inline-block;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+  color: $body-color;
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
-  color: $body-color;
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
   background-image: none;
-  border: $btn-border-width solid transparent;
-  border-radius: $btn-border-radius;
-  padding: $btn-padding-y $btn-padding-x;
-  font-size: $btn-font-size;
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
-  &.disabled,
-  &[disabled] {
-    &:hover {
-      text-decoration: none;
-    }
-    cursor: not-allowed;
-    opacity: $btn-disabled-opacity;
+
+  &-lg {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg)
+  }
+
+  &-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm)
+  }
+
+  &-primary {
+    @include button-style($primary, $primary, $white)
+  }
+
+  &-danger {
+    @include button-style($danger, $danger, $white)
+  }
+
+  &-default {
+    @include button-style($white, $gray-400, $body-color, $white, $primary, $primary)
+  }
+
+  &-link {
+    color: $btn-link-color;
+    font-weight: $font-weight-normal;
+    text-decoration: $link-decoration;
     box-shadow: none;
-    > * {
-      pointer-events: none;
+    &:hover {
+      color: $btn-link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+
+    &:focus {
+      text-decoration: $link-hover-decoration;
+      box-shadow: none;
+    }
+
+    &-disabled {
+      color: $btn-disabled-color;
+      cursor: not-allowed;
+      opacity: $btn-disabled-opacity;
+      &:hover {
+        color: $btn-disabled-color;
+        text-decoration: none;
+      }
+      > * {
+        pointer-events: none;
+      }
     }
   }
 }
